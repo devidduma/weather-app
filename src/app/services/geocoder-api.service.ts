@@ -6,9 +6,11 @@ import { Observable } from "rxjs";
   providedIn: 'root'
 })
 export class GeocoderApiService {
-  baseUrlApiPath = "http://api.openweathermap.org/geo/1.0/direct?"
+  baseUrlApiPath = "http://api.openweathermap.org/geo/1.0/direct?";
 
-  constructor(private http: HttpClient) { }
+  selectedLocation: Location = {} as Location;
+
+  constructor(private http: HttpClient) {}
 
   getLocation(
     q: string,
@@ -19,5 +21,9 @@ export class GeocoderApiService {
       "&limit=" + limit.toString() + "&appid=" + appid;
 
     return this.http.get<Array<Location>>(fullUrl);
+  }
+
+  saveLocation(location: Location) {
+    this.selectedLocation = location;
   }
 }

@@ -1,3 +1,22 @@
-<div>{{(weather | json)}}</div>
-<div>{{location | json}}</div>
-<div>{{getData()}}</div>
+<app-location (onLocationSelected)="selectLocation($event);"></app-location>
+<div *ngIf="(weather | json) != ({} | json)">
+  <h3>{{selectedLocation.name}}, {{selectedLocation.state}}, {{selectedLocation.country}}</h3>
+  <ul>
+    <li>Description: {{weather.weather[0].description}}</li>
+    <li>Temperature: {{weather.main.temp}}</li>
+    <li>Minimum: {{weather.main.temp_min}}</li>
+    <li>Maximum: {{weather.main.temp_max}}</li>
+    <li>Feels like: {{weather.main.feels_like}}</li>
+  </ul>
+  <ul>
+    <li>Visibility: {{weather.visibility}}</li>
+    <li>Pressure: {{weather.main.pressure}}</li>
+    <li>Humidity: {{weather.main.humidity}}</li>
+    <li>Wind degree: {{weather.wind.deg}}</li>
+    <li>Wind speed: {{weather.wind.speed}}</li>
+  </ul>
+  <ul>
+    <li>{{weather.sys.sunrise | date: 'shortTime'}}</li>
+    <li>{{weather.sys.sunset | date: 'shortTime'}}</li>
+  </ul>
+</div>
