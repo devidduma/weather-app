@@ -1,0 +1,18 @@
+<div>
+  <label for="location">Location: </label>
+  <input id="location" #locationName />
+
+  <button type="button" class="add-button" (click)="searchLocation(locationName.value); locationName.value='';">
+    Search
+  </button>
+</div>
+
+<ul class="locations">
+  <li *ngFor="let location of locations">
+    <a (click)="selectLocation(location)">
+      <div class="badge">{{location.name}}, {{location.state}}, {{location.country}}</div>
+      <div class="badge">Latitude: {{location.lat | number: '1.1-5'}}</div>
+      <div class="badge">Longitude: {{location.lon | number: '1.1-5'}}</div>
+    </a>
+  </li>
+</ul>
