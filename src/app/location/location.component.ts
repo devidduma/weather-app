@@ -1,9 +1,10 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Location} from "../location";
 import {GeocoderApiService} from "../services/geocoder-api.service";
-import {DecimalPipe, NgForOf} from "@angular/common";
+import {DecimalPipe, JsonPipe, NgForOf, NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import {Weather} from "../weather";
+import {WeatherComponent} from "../components/weather/weather.component";
 
 @Component({
   selector: 'app-location',
@@ -11,7 +12,10 @@ import {Weather} from "../weather";
   imports: [
     NgForOf,
     RouterLink,
-    DecimalPipe
+    DecimalPipe,
+    JsonPipe,
+    NgIf,
+    WeatherComponent
   ],
   templateUrl: './location.component.html',
   styleUrl: './location.component.css'

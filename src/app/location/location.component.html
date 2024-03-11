@@ -1,18 +1,16 @@
-<div>
-  <label for="location">Location: </label>
-  <input id="location" #locationName />
+<div class="w-1/2">
+  <label for="location" class="text-xl block text-sm font-medium leading-6 text-gray-900">Location</label>
+  <div class="mt-2">
+    <input id="location" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6" #locationName
+    (keyup)="searchLocation(locationName.value);"/>
+  </div>
 
-  <button type="button" class="add-button" (click)="searchLocation(locationName.value); locationName.value='';">
-    Search
-  </button>
+  <ul *ngIf="locations.length != 0;" class="locations border-1 mt-2 divide-y divide-gray-200 rounded border border-gray-300 bg-white">
+    <li class="flex py-4 hover:cursor-pointer hover:bg-gray-100 rounded-b rounded-t" *ngFor="let location of locations" (click)="selectLocation(location)">
+      <a>
+        <div class="badge">{{location.name}}, {{location.state}}, {{location.country}}</div>
+        <div class="badge">Latitude: {{location.lat | number: '1.1-5'}}, Longitude: {{location.lon | number: '1.1-5'}}</div>
+      </a>
+    </li>
+  </ul>
 </div>
-
-<ul class="locations">
-  <li *ngFor="let location of locations">
-    <a (click)="selectLocation(location)">
-      <div class="badge">{{location.name}}, {{location.state}}, {{location.country}}</div>
-      <div class="badge">Latitude: {{location.lat | number: '1.1-5'}}</div>
-      <div class="badge">Longitude: {{location.lon | number: '1.1-5'}}</div>
-    </a>
-  </li>
-</ul>
