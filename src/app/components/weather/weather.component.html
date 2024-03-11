@@ -1,7 +1,7 @@
 <app-location (onLocationSelected)="selectLocation($event);"></app-location>
 
 <div class="mt-2 w-1/2 pt-4" *ngIf="(weather | json) != ({} | json)">
-  <h3 class="text-xl font-semibold leading-tight tracking-tight text-gray-900 p-2">{{selectedLocation.name}}, {{selectedLocation.state}}, {{selectedLocation.country}}</h3>
+  <h3 class="text-xl font-semibold leading-tight tracking-tight text-gray-900 p-3">{{selectedLocation.name}}, {{selectedLocation.state}}, {{selectedLocation.country}}</h3>
 
   <ul class="locations flex flex-row justify-center gap-4 border-1 mt-2 divide-y divide-gray-200 rounded border border-gray-300 bg-white">
     <li>Description: <span class="text-sm font-medium capitalize">{{weather.weather[0].description}}</span></li>
