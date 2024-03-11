@@ -1,22 +1,26 @@
 <app-location (onLocationSelected)="selectLocation($event);"></app-location>
-<div *ngIf="(weather | json) != ({} | json)">
-  <h3>{{selectedLocation.name}}, {{selectedLocation.state}}, {{selectedLocation.country}}</h3>
-  <ul>
-    <li>Description: {{weather.weather[0].description}}</li>
-    <li>Temperature: {{weather.main.temp}}</li>
-    <li>Minimum: {{weather.main.temp_min}}</li>
-    <li>Maximum: {{weather.main.temp_max}}</li>
-    <li>Feels like: {{weather.main.feels_like}}</li>
+
+<div class="mt-2 w-1/2 pt-4" *ngIf="(weather | json) != ({} | json)">
+  <h3 class="text-xl font-semibold leading-tight tracking-tight text-gray-900 p-2">{{selectedLocation.name}}, {{selectedLocation.state}}, {{selectedLocation.country}}</h3>
+
+  <ul class="locations flex flex-row justify-center gap-4 border-1 mt-2 divide-y divide-gray-200 rounded border border-gray-300 bg-white">
+    <li>Description: <span class="text-sm font-medium capitalize">{{weather.weather[0].description}}</span></li>
   </ul>
-  <ul>
-    <li>Visibility: {{weather.visibility}}</li>
-    <li>Pressure: {{weather.main.pressure}}</li>
-    <li>Humidity: {{weather.main.humidity}}</li>
-    <li>Wind degree: {{weather.wind.deg}}</li>
-    <li>Wind speed: {{weather.wind.speed}}</li>
+  <ul class="locations flex flex-row justify-center gap-4 border-1 mt-2 divide-y divide-gray-200 rounded border border-gray-300 bg-white">
+    <li>Temperature: <span class="text-sm font-medium">{{weather.main.temp}}</span></li>
+    <li>Minimum: <span class="text-sm font-medium">{{weather.main.temp_min}}</span></li>
+    <li>Maximum: <span class="text-sm font-medium">{{weather.main.temp_max}}</span></li>
+    <li>Feels like: <span class="text-sm font-medium">{{weather.main.feels_like}}</span></li>
   </ul>
-  <ul>
-    <li>{{weather.sys.sunrise | date: 'shortTime'}}</li>
-    <li>{{weather.sys.sunset | date: 'shortTime'}}</li>
+  <ul class="locations flex flex-row justify-center gap-4 border-1 mt-2 divide-y divide-gray-200 rounded border border-gray-300 bg-white">
+    <li>Visibility: <span class="text-sm font-medium">{{weather.visibility}}</span></li>
+    <li>Pressure: <span class="text-sm font-medium">{{weather.main.pressure}}</span></li>
+    <li>Humidity: <span class="text-sm font-medium">{{weather.main.humidity}}</span></li>
+    <li>Wind degree: <span class="text-sm font-medium">{{weather.wind.deg}}</span></li>
+    <li>Wind speed: <span class="text-sm font-medium">{{weather.wind.speed}}</span></li>
+  </ul>
+  <ul class="locations flex flex-row justify-center gap-4 border-1 mt-2 divide-y divide-gray-200 rounded border border-gray-300 bg-white">
+    <li>Sunrise: <span class="text-sm font-medium">{{weather.sys.sunrise | date: 'shortTime'}}</span></li>
+    <li>Sunset: <span class="text-sm font-medium">{{weather.sys.sunset | date: 'shortTime'}}</span></li>
   </ul>
 </div>
