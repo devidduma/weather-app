@@ -1,26 +1,33 @@
-<app-location (onLocationSelected)="selectLocation($event);"></app-location>
+<div class="grid grid-cols-4 gap-4">
 
-<div class="mt-2 w-1/2 pt-4" *ngIf="(weather | json) != ({} | json)">
-  <h3 class="text-xl font-semibold leading-tight tracking-tight text-gray-900 p-3">{{selectedLocation.name}}, {{selectedLocation.state}}, {{selectedLocation.country}}</h3>
+  <div class="pt-4">
+    <h2 class="text-4xl font-semibold leading-tight tracking-tight text-gray-900 p-3">Weather App</h2>
+  </div>
+  <div class="pt-4">
+    <h2 *ngIf="(weather | json) != ({} | json)" class="text-3xl font-semibold leading-tight tracking-tight text-gray-900 p-3">{{selectedLocation.name}}, {{selectedLocation.state}}, {{selectedLocation.country}}</h2>
+  </div>
+  <div></div>
+  <div></div>
 
-  <ul class="locations flex flex-row justify-center gap-4 border-1 mt-2 divide-y divide-gray-200 rounded border border-gray-300 bg-white">
-    <li>Description: <span class="text-sm font-medium capitalize">{{weather.weather[0].description}}</span></li>
-  </ul>
-  <ul class="locations flex flex-row justify-center gap-4 border-1 mt-2 divide-y divide-gray-200 rounded border border-gray-300 bg-white">
-    <li>Temperature: <span class="text-sm font-medium">{{weather.main.temp}}</span></li>
-    <li>Minimum: <span class="text-sm font-medium">{{weather.main.temp_min}}</span></li>
-    <li>Maximum: <span class="text-sm font-medium">{{weather.main.temp_max}}</span></li>
-    <li>Feels like: <span class="text-sm font-medium">{{weather.main.feels_like}}</span></li>
-  </ul>
-  <ul class="locations flex flex-row justify-center gap-4 border-1 mt-2 divide-y divide-gray-200 rounded border border-gray-300 bg-white">
-    <li>Visibility: <span class="text-sm font-medium">{{weather.visibility}}</span></li>
-    <li>Pressure: <span class="text-sm font-medium">{{weather.main.pressure}}</span></li>
-    <li>Humidity: <span class="text-sm font-medium">{{weather.main.humidity}}</span></li>
-    <li>Wind degree: <span class="text-sm font-medium">{{weather.wind.deg}}</span></li>
-    <li>Wind speed: <span class="text-sm font-medium">{{weather.wind.speed}}</span></li>
-  </ul>
-  <ul class="locations flex flex-row justify-center gap-4 border-1 mt-2 divide-y divide-gray-200 rounded border border-gray-300 bg-white">
-    <li>Sunrise: <span class="text-sm font-medium">{{weather.sys.sunrise | date: 'shortTime'}}</span></li>
-    <li>Sunset: <span class="text-sm font-medium">{{weather.sys.sunset | date: 'shortTime'}}</span></li>
-  </ul>
+  <app-location (onLocationSelected)="selectLocation($event);"></app-location>
+
+  <div class="grid grid-cols-subgrid gap-4 col-span-3" *ngIf="(weather | json) != ({} | json)">
+    <ul class="locations justify-center gap-4 border-1 divide-y divide-gray-200 rounded border border-gray-300 bg-white">
+      <li>Description: <span class="text-sm font-medium capitalize">{{weather.weather[0].description}}</span></li>
+      <li>Temperature: <span class="text-sm font-medium">{{weather.main.temp}}</span></li>
+      <li>Feels like: <span class="text-sm font-medium">{{weather.main.feels_like}}</span></li>
+    </ul>
+    <ul class="locations justify-center gap-4 border-1 divide-y divide-gray-200 rounded border border-gray-300 bg-white">
+      <li>Visibility: <span class="text-sm font-medium">{{weather.visibility}}</span></li>
+      <li>Pressure: <span class="text-sm font-medium">{{weather.main.pressure}}</span></li>
+      <li>Humidity: <span class="text-sm font-medium">{{weather.main.humidity}}</span></li>
+      <li>Wind degree: <span class="text-sm font-medium">{{weather.wind.deg}}</span></li>
+      <li>Wind speed: <span class="text-sm font-medium">{{weather.wind.speed}}</span></li>
+    </ul>
+    <ul class="locations justify-center gap-4 border-1 divide-y divide-gray-200 rounded border border-gray-300 bg-white">
+      <li>Sunrise: <span class="text-sm font-medium">{{weather.sys.sunrise | date: 'shortTime'}}</span></li>
+      <li>Sunset: <span class="text-sm font-medium">{{weather.sys.sunset | date: 'shortTime'}}</span></li>
+    </ul>
+  </div>
+
 </div>
