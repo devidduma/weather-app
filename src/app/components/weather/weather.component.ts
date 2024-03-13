@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {WeatherApiService} from "../../services/weather-api.service";
-import {DatePipe, JsonPipe, NgForOf, NgIf} from "@angular/common";
+import {DatePipe, DecimalPipe, JsonPipe, NgForOf, NgIf} from "@angular/common";
 import {Weather} from "../../weather";
 import {RouterLink} from "@angular/router";
 import {LocationComponent} from "../../location/location.component";
@@ -15,7 +15,8 @@ import {Location} from "../../location";
     RouterLink,
     LocationComponent,
     NgIf,
-    DatePipe
+    DatePipe,
+    DecimalPipe
   ],
   templateUrl: './weather.component.html',
   styleUrl: './weather.component.css'
