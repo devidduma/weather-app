@@ -1,10 +1,10 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Location} from "../location";
-import {GeocoderApiService} from "../services/geocoder-api.service";
+import {Location} from "../../models/location";
+import {GeocoderApiService} from "../../services/geocoder-api.service";
 import {DecimalPipe, JsonPipe, NgForOf, NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
-import {Weather} from "../weather";
-import {WeatherComponent} from "../components/weather/weather.component";
+import {Weather} from "../../models/weather";
+import {WeatherComponent} from "../weather/weather.component";
 
 @Component({
   selector: 'app-location',
