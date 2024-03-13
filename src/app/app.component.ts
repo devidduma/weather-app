@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {JsonPipe} from "@angular/common";
 import {WeatherComponent} from "./components/weather/weather.component";
-import {LocationComponent} from "./location/location.component";
+import {LocationComponent} from "./components/location/location.component";
 
 @Component({
   selector: 'app-root',

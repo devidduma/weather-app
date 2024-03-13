@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {WeatherApiService} from "../../services/weather-api.service";
 import {DatePipe, DecimalPipe, JsonPipe, NgForOf, NgIf} from "@angular/common";
-import {Weather} from "../../weather";
+import {Weather} from "../../models/weather";
 import {RouterLink} from "@angular/router";
-import {LocationComponent} from "../../location/location.component";
-import {Location} from "../../location";
+import {LocationComponent} from "../location/location.component";
+import {Location} from "../../models/location";
 
 @Component({
   selector: 'app-weather',
