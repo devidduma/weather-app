@@ -13,7 +13,7 @@ Weather Application written in Angular and Tailwind CSS.
 
 ## Presentation
 
-| Poland                               | Kyiv                              | 
+| Warsaw                               | Kyiv                              | 
 |--------------------------------------|-----------------------------------|
 | ![Warsaw](./src/assets/WarsawPL.png) | ![Kyiv](./src/assets/KyivUKR.png) |
 
