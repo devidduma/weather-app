@@ -13,10 +13,10 @@ Weather Application written in Angular and Tailwind CSS.
 
 ## Presentation
 
-| Berlin                             | Kyiv                                   | 
-|------------------------------------|----------------------------------------|
-| ![Berlin](./src/assets/Berlin.PNG) | ![Kyiv](./src/assets/Kyiv.PNG)         |
+| Poland                               | Kyiv                              | 
+|--------------------------------------|-----------------------------------|
+| ![Warsaw](./src/assets/WarsawPL.PNG) | ![Kyiv](./src/assets/KyivUKR.PNG) |
 
-| Moscow                             | Tel-Aviv                               | 
-|------------------------------------| -------------------------------------- |
-| ![Moscow](./src/assets/Moscow.PNG)  | ![Tel-Aviv](./src/assets/Tel-Aviv.PNG) |
+| Moscow                               |
+|--------------------------------------|
+| ![Moscow](./src/assets/MoscowRU.PNG) |
