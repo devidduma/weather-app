@@ -15,8 +15,8 @@ Weather Application written in Angular and Tailwind CSS.
 
 | Poland                               | Kyiv                              | 
 |--------------------------------------|-----------------------------------|
-| ![Warsaw](./src/assets/WarsawPL.PNG) | ![Kyiv](./src/assets/KyivUKR.PNG) |
+| ![Warsaw](./src/assets/WarsawPL.png) | ![Kyiv](./src/assets/KyivUKR.png) |
 
 | Moscow                               |
 |--------------------------------------|
-| ![Moscow](./src/assets/MoscowRU.PNG) |
+| ![Moscow](./src/assets/MoscowRU.png) |
