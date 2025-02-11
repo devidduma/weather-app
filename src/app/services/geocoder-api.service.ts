@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
   providedIn: 'root'
 })
 export class GeocoderApiService {
-  baseUrlApiPath = "http://api.openweathermap.org/geo/1.0/direct?";
+  baseUrlApiPath = "https://api.openweathermap.org/geo/1.0/direct?";
 
   selectedLocation: Location = {} as Location;
 
