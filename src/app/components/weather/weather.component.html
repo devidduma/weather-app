@@ -55,4 +55,8 @@
       </tr>
     </table>
   </div>
+
+  <div *ngIf="(weather | json) == ({} | json)" class="center-pane"></div>
+  <div *ngIf="(weather | json) == ({} | json)" class="right-pane"></div>
+
 </div>
