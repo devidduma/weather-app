@@ -11,8 +11,6 @@ import {Location} from "../../models/location";
   standalone: true,
   imports: [
     JsonPipe,
-    NgForOf,
-    RouterLink,
     LocationComponent,
     NgIf,
     DatePipe,

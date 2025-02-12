@@ -1,66 +1,58 @@
-<div class="grid grid-cols-4 gap-4">
-
-  <div class="pt-4 align-bottom">
-    <h2 class="text-4xl font-semibold leading-tight tracking-tight text-gray-900 p-3">Weather App</h2>
+<div class="centered-content">
+  <div class="left-pane">
+    <h2 class="title text-4xl font-semibold leading-tight tracking-tight text-gray-900">Weather App</h2>
+    <app-location class="location" (onLocationSelected)="selectLocation($event);"></app-location>
   </div>
-  <div class="pt-4 align-bottom">
-    <h2 *ngIf="(weather | json) != ({} | json)" class="text-3xl font-semibold leading-tight tracking-tight text-gray-900 p-3">{{selectedLocation.name}}, {{selectedLocation.state}}, {{selectedLocation.country}}</h2>
+
+  <div *ngIf="(weather | json) != ({} | json)" class="center-pane">
+    <h2 class="title text-3xl font-semibold leading-tight tracking-tight text-gray-900">{{selectedLocation.name}}, {{selectedLocation.state}}, {{selectedLocation.country}}</h2>
+    <div class="weather-icon">
+      <img src="assets/openweathermap/{{weather.weather[0].icon}}.svg" />
+    </div>
   </div>
-  <div></div>
-  <div></div>
 
-  <app-location class="h-96" (onLocationSelected)="selectLocation($event);"></app-location>
-
-  <div class="grid grid-cols-subgrid gap-4 col-span-3" *ngIf="(weather | json) != ({} | json)">
-    <ul class="locations justify-center gap-4">
-      <li><img src="assets/openweathermap/{{weather.weather[0].icon}}.svg" /></li>
-    </ul>
-
-    <table class="text-center">
+  <div *ngIf="(weather | json) != ({} | json)" class="right-pane">
+    <table class="table text-center">
       <tr>
-        <td>Description</td>
-        <td class="text-sm font-medium capitalize">{{weather.weather[0].description}}</td>
+        <td class="font-bold">Description</td>
+        <td class="italic capitalize">{{weather.weather[0].description}}</td>
       </tr>
       <tr>
         <td>Temperature</td>
-        <td class="text-sm font-medium">{{weather.main.temp | number: '1.0-1'}} °C</td>
+        <td>{{weather.main.temp | number: '1.0-1'}} °C</td>
       </tr>
       <tr>
         <td>Feels like</td>
-        <td class="text-sm font-medium">{{weather.main.feels_like | number: '1.0-1'}} °C</td>
+        <td>{{weather.main.feels_like | number: '1.0-1'}} °C</td>
       </tr>
       <tr>
         <td>Visibility</td>
-        <td class="text-sm font-medium">{{(weather.visibility / 1000) | number: '1.0-1'}} km</td>
+        <td>{{(weather.visibility / 1000) | number: '1.0-1'}} km</td>
       </tr>
       <tr>
         <td>Pressure</td>
-        <td class="text-sm font-medium">{{weather.main.pressure}} hPa</td>
+        <td>{{weather.main.pressure}} hPa</td>
       </tr>
       <tr>
         <td>Humidity</td>
-        <td class="text-sm font-medium">{{weather.main.humidity}} %</td>
+        <td>{{weather.main.humidity}} %</td>
       </tr>
       <tr>
         <td>Wind degree</td>
-        <td class="text-sm font-medium">{{weather.wind.deg}} °</td>
+        <td>{{weather.wind.deg}} °</td>
       </tr>
       <tr>
         <td>Wind speed</td>
-        <td class="text-sm font-medium">{{weather.wind.speed | number: '1.0-1'}} m/s</td>
+        <td>{{weather.wind.speed | number: '1.0-1'}} m/s</td>
       </tr>
       <tr>
         <td>Sunrise</td>
-        <td class="text-sm font-medium">{{weather.sys.sunrise | date: 'shortTime'}}</td>
+        <td>{{weather.sys.sunrise | date: 'shortTime'}}</td>
       </tr>
       <tr>
         <td>Sunset</td>
-        <td class="text-sm font-medium">{{weather.sys.sunset | date: 'shortTime'}}</td>
+        <td>{{weather.sys.sunset | date: 'shortTime'}}</td>
       </tr>
     </table>
-
-    <ul class="locations justify-center gap-4">
-    </ul>
   </div>
-
 </div>
