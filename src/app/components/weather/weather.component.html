@@ -5,7 +5,7 @@
   </div>
 
   <div *ngIf="(weather | json) != ({} | json)" class="center-pane">
-    <h2 class="title text-3xl font-semibold leading-tight tracking-tight text-gray-900">{{selectedLocation.name}}, {{selectedLocation.state}}, {{selectedLocation.country}}</h2>
+    <h2 class="title text-3xl font-semibold leading-tight tracking-tight text-gray-900">{{this.loc(this.selectedLocation)}}</h2>
     <div class="weather-icon">
       <img src="assets/openweathermap/{{weather.weather[0].icon}}.svg" />
     </div>
@@ -19,7 +19,7 @@
       </tr>
       <tr>
         <td>Temperature</td>
-        <td>{{weather.main.temp | number: '1.0-1'}} °C</td>
+        <td class="font-bold">{{weather.main.temp | number: '1.0-1'}} °C</td>
       </tr>
       <tr>
         <td>Feels like</td>
@@ -35,7 +35,7 @@
       </tr>
       <tr>
         <td>Humidity</td>
-        <td>{{weather.main.humidity}} %</td>
+        <td class="font-bold">{{weather.main.humidity}} %</td>
       </tr>
       <tr>
         <td>Wind degree</td>
@@ -43,15 +43,7 @@
       </tr>
       <tr>
         <td>Wind speed</td>
-        <td>{{weather.wind.speed | number: '1.0-1'}} m/s</td>
-      </tr>
-      <tr>
-        <td>Sunrise</td>
-        <td>{{weather.sys.sunrise | date: 'shortTime'}}</td>
-      </tr>
-      <tr>
-        <td>Sunset</td>
-        <td>{{weather.sys.sunset | date: 'shortTime'}}</td>
+        <td class="font-bold">{{weather.wind.speed | number: '1.0-1'}} m/s</td>
       </tr>
     </table>
   </div>
