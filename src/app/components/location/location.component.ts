@@ -11,11 +11,8 @@ import {WeatherComponent} from "../weather/weather.component";
   standalone: true,
   imports: [
     NgForOf,
-    RouterLink,
     DecimalPipe,
-    JsonPipe,
-    NgIf,
-    WeatherComponent
+    NgIf
   ],
   templateUrl: './location.component.html',
   styleUrl: './location.component.css'
