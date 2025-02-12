@@ -1,10 +1,8 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Location} from "../../models/location";
 import {GeocoderApiService} from "../../services/geocoder-api.service";
-import {DecimalPipe, JsonPipe, NgForOf, NgIf} from "@angular/common";
-import {RouterLink} from "@angular/router";
+import {DecimalPipe, NgForOf, NgIf} from "@angular/common";
 import {Weather} from "../../models/weather";
-import {WeatherComponent} from "../weather/weather.component";
 
 @Component({
   selector: 'app-location',
@@ -43,5 +41,13 @@ export class LocationComponent {
     this.onLocationSelected.emit(location);
     console.log(location);
     this.locations = [];
+  }
+
+  loc(location: Location): string {
+    let loc: string = location.name;
+    if(location.state)
+      loc = loc.concat(", ", location.state);
+    loc = loc.concat(", ", location.country);
+    return loc;
   }
 }
