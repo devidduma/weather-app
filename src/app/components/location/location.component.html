@@ -8,7 +8,7 @@
   <ul *ngIf="locations.length != 0;" class="locations border-1 mt-2 divide-y divide-gray-200 rounded border border-gray-300 bg-white">
     <li class="flex py-4 px-4 hover:cursor-pointer hover:bg-gray-100 rounded-b rounded-t" *ngFor="let location of locations" (click)="selectLocation(location)">
       <a>
-        <div class="badge">{{location.name}}, {{location.state}}, {{location.country}}</div>
+        <div class="badge">{{this.loc(this.location)}}</div>
         <div class="badge">Latitude: {{location.lat | number: '1.1-5'}}, Longitude: {{location.lon | number: '1.1-5'}}</div>
       </a>
     </li>
