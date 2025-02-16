@@ -30,7 +30,7 @@ export class LocationComponent {
     this.weather = {} as Weather;
     console.log(this.weather);
 
-    this.geocoder.getLocation(locationName, 3, "a9f15ff70141e1cd8f5ae01238c5ad1e")
+    this.geocoder.getLocation(locationName, 2, "a9f15ff70141e1cd8f5ae01238c5ad1e")
       .subscribe(response => {
         this.locations = response;
         console.log(this.locations);
