@@ -1,11 +1,11 @@
 <div class="centered-content">
   <div class="left-pane">
-    <h2 class="title text-4xl font-semibold leading-tight tracking-tight text-gray-900">Weather App</h2>
+    <h2 id="weather-app">Weather App</h2>
     <app-location class="location" (onLocationSelected)="selectLocation($event);"></app-location>
   </div>
 
   <div *ngIf="(weather | json) != ({} | json)" class="center-pane">
-    <h2 class="title text-3xl font-semibold leading-tight tracking-tight text-gray-900">{{this.loc(this.selectedLocation)}}</h2>
+    <h2 id="selected-location">{{this.loc(this.selectedLocation)}}</h2>
     <div class="weather-icon">
       <img src="assets/openweathermap/{{weather.weather[0].icon}}.svg" />
     </div>

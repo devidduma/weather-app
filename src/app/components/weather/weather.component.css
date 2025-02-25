@@ -1,3 +1,11 @@
+#weather-app {
+  @apply title text-4xl font-semibold leading-tight tracking-tight text-gray-900;
+}
+
+#selected-location {
+  @apply title text-3xl font-semibold leading-tight tracking-tight text-gray-900;
+}
+
 .centered-content {
   display: flex;
   flex-direction: row;
@@ -15,7 +23,7 @@
   margin: 0 3% 0 3%;
 }
 
-@media screen and (orientation: portrait) {
+@media screen and (orientation: portrait), screen and (orientation: landscape) and (max-width: 750px) {
   .centered-content {
     flex-wrap: wrap;
   }
