@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {WeatherApiService} from "../../services/weather-api.service";
 import {DatePipe, DecimalPipe, JsonPipe, NgForOf, NgIf} from "@angular/common";
 import {Weather} from "../../models/weather";
@@ -20,7 +20,7 @@ import {GeocoderApiService} from "../../services/geocoder-api.service";
   styleUrl: './weather.component.css'
 })
 export class WeatherComponent implements OnInit {
-  @Input() weather: Weather = {} as Weather;
+  weather: Weather = {} as Weather;
   selectedLocation: Location = {} as Location;
 
   constructor(private dataService: WeatherApiService, private geocoderService: GeocoderApiService) {

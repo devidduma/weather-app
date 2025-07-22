@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Location} from "../../models/location";
 import {GeocoderApiService} from "../../services/geocoder-api.service";
 import {DecimalPipe, NgForOf, NgIf} from "@angular/common";
@@ -15,9 +15,9 @@ import {Weather} from "../../models/weather";
   templateUrl: './location.component.html',
   styleUrl: './location.component.css'
 })
-export class LocationComponent {
-  locations: Array<Location> = [];
-  @Input() weather: Weather = {} as Weather;
+export class LocationComponent implements OnInit {
+  locations: Location[] = [];
+  weather: Weather = {} as Weather;
 
   constructor(private geocoder: GeocoderApiService) {}
 
