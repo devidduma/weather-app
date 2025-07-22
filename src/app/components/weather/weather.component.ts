@@ -4,6 +4,7 @@ import {DatePipe, DecimalPipe, JsonPipe, NgForOf, NgIf} from "@angular/common";
 import {Weather} from "../../models/weather";
 import {LocationComponent} from "../location/location.component";
 import {Location} from "../../models/location";
+import {GeocoderApiService} from "../../services/geocoder-api.service";
 
 @Component({
   selector: 'app-weather',
@@ -22,16 +23,14 @@ export class WeatherComponent implements OnInit {
   @Input() weather: Weather = {} as Weather;
   selectedLocation: Location = {} as Location;
 
-  selectLocation(location: Location) {
-    this.selectedLocation = location;
-    this.getWeather(this.selectedLocation.lat, this.selectedLocation.lon);
-    console.log("onLocationSelected executed ", location);
+  constructor(private dataService: WeatherApiService, private geocoderService: GeocoderApiService) {
   }
 
-  constructor(private dataService: WeatherApiService) {}
-
   ngOnInit() {
-    //this.getWeather(44.1, 19.1);
+    this.geocoderService.getSelectedLocation().subscribe(location => {
+      this.selectedLocation = location;
+      this.getWeather(this.selectedLocation.lat, this.selectedLocation.lon);
+    });
   }
 
   getWeather(latitude: number, longitude: number) {
