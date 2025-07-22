@@ -28,14 +28,6 @@ export class WeatherComponent implements OnInit {
     console.log("onLocationSelected executed ", location);
   }
 
-  loc(location: Location): string {
-    let loc: string = location.name;
-    if(location.state)
-      loc = loc.concat(", ", location.state);
-    loc = loc.concat(", ", location.country);
-    return loc;
-  }
-
   constructor(private dataService: WeatherApiService) {}
 
   ngOnInit() {

@@ -7,7 +7,7 @@
   <ul *ngIf="locations.length != 0;" class="locations-list">
     <li *ngFor="let location of locations" (click)="selectLocation(location)">
       <a>
-        <div class="badge">{{this.loc(this.location)}}</div>
+        <div class="badge">{{location.printLoc()}}</div>
         <div class="badge">Latitude: {{location.lat | number: '1.1-1'}}, Longitude: {{location.lon | number: '1.1-1'}}</div>
       </a>
     </li>

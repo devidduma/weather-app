@@ -42,12 +42,4 @@ export class LocationComponent {
     console.log(location);
     this.locations = [];
   }
-
-  loc(location: Location): string {
-    let loc: string = location.name;
-    if(location.state)
-      loc = loc.concat(", ", location.state);
-    loc = loc.concat(", ", location.country);
-    return loc;
-  }
 }
