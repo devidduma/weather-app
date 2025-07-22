@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from "rxjs";
+import {Weather} from "../models/weather";
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherApiService {
-  baseUrlApiPath: string = "https://api.openweathermap.org/data/2.5/weather?";
+  baseUrlApiPath: string = "https://api.openweathermap.org/data/2.5/weather";
 
   constructor(private http: HttpClient) { }
 
@@ -16,10 +17,9 @@ export class WeatherApiService {
     appid: string,
     units: string,
     language: string
-  ): Observable<any> {
-    let fullUrl: string = this.baseUrlApiPath + "lat=" + latitude.toString() +
-      "&lon=" + longitude.toString() + "&appid=" + appid + "&units=" + units.toString() + "&lang=" + language.toString();
+  ): Observable<Weather> {
+    let fullUrl: string = `${this.baseUrlApiPath}?lat=${latitude}&lon=${longitude}&appid=${appid}&units=${units}&lang=${language}`;
 
-    return this.http.get(fullUrl);
+    return this.http.get<Weather>(fullUrl);
   }
 }
