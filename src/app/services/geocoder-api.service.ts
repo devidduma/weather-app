@@ -21,7 +21,7 @@ export class GeocoderApiService {
         q: string,
         limit: number,
         appid: string
-    ): Observable<any> {
+    ): Observable<Location[]> {
         let fullUrl: string = `${this.baseUrlApiPath}?q=${q}&limit=${limit}&appid=${appid}`;
 
         return this.http.get<any[]>(fullUrl).pipe(
