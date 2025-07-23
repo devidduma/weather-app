@@ -37,6 +37,6 @@ export class WeatherComponent implements OnInit {
   }
 
   getWeather(latitude: number, longitude: number): Observable<Weather> {
-    return this.dataService.getWeatherLocation(latitude, longitude, "a9f15ff70141e1cd8f5ae01238c5ad1e", "metric", "english");
+    return this.dataService.getPollingWeather(10, latitude, longitude, "a9f15ff70141e1cd8f5ae01238c5ad1e", "metric", "english");
   }
 }
