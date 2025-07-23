@@ -5,7 +5,7 @@
   </div>
 
   <div *ngIf="(weather | json) != ({} | json)" class="center-pane">
-    <h2 id="selected-location">{{this.selectedLocation.printLoc()}}</h2>
+    <h2 id="selected-location">{{(selectedLocation | async)!.printLoc()}}</h2>
     <div class="weather-icon">
       <img src="assets/openweathermap/{{weather.weather[0].icon}}.svg" />
     </div>
