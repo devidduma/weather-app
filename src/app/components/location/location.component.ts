@@ -24,7 +24,7 @@ export class LocationComponent implements OnInit {
   }
 
   searchLocation(locationName: string) {
-    this.geocoder.getLocations(locationName, 2, "a9f15ff70141e1cd8f5ae01238c5ad1e")
+    this.geocoder.getLocations(locationName, 2)
       .subscribe(locations => {
         this.locations = locations;
       });
