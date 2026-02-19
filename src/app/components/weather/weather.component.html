@@ -4,50 +4,51 @@
     <app-location class="location"></app-location>
   </div>
 
-  <div *ngIf="(weather | json) != ({} | json)" class="center-pane">
-    <h2 id="selected-location">{{(selectedLocation | async)!.printLoc()}}</h2>
-    <div class="weather-icon">
-      <img src="assets/openweathermap/{{weather.weather[0].icon}}.svg" />
-    </div>
-  </div>
+  <ng-container *ngIf="weather | async as weather">
+    <ng-container  *ngIf="(weather | json) != ({} | json)">
+      <div class="center-pane">
+        <h2 id="selected-location">{{(selectedLocation | async)!.printLoc()}}</h2>
+        <div class="weather-icon">
+          <img src="assets/openweathermap/{{weather.weather[0].icon}}.svg" />
+        </div>
+      </div>
 
-  <div *ngIf="(weather | json) != ({} | json)" class="right-pane">
-    <table class="table text-center">
-      <tr>
-        <td class="font-bold">Description</td>
-        <td class="italic capitalize">{{weather.weather[0].description}}</td>
-      </tr>
-      <tr>
-        <td>Temperature</td>
-        <td class="font-bold">{{weather.main.temp | number: '1.0-1'}} °C</td>
-      </tr>
-      <tr>
-        <td>Feels like</td>
-        <td>{{weather.main.feels_like | number: '1.0-1'}} °C</td>
-      </tr>
-      <tr>
-        <td>Visibility</td>
-        <td>{{(weather.visibility / 1000) | number: '1.0-1'}} km</td>
-      </tr>
-      <tr>
-        <td>Pressure</td>
-        <td>{{weather.main.pressure}} hPa</td>
-      </tr>
-      <tr>
-        <td>Humidity</td>
-        <td class="font-bold">{{weather.main.humidity}} %</td>
-      </tr>
-      <tr>
-        <td>Wind degree</td>
-        <td>{{weather.wind.deg}} °</td>
-      </tr>
-      <tr>
-        <td>Wind speed</td>
-        <td class="font-bold">{{weather.wind.speed | number: '1.0-1'}} m/s</td>
-      </tr>
-    </table>
-  </div>
-
-  <div *ngIf="(weather | json) == ({} | json)" class="center-pane"></div>
-  <div *ngIf="(weather | json) == ({} | json)" class="right-pane"></div>
+      <div class="right-pane">
+        <table class="table text-center">
+          <tr>
+            <td class="font-bold">Description</td>
+            <td class="italic capitalize">{{weather.weather[0].description}}</td>
+          </tr>
+          <tr>
+            <td>Temperature</td>
+            <td class="font-bold">{{weather.main.temp | number: '1.0-1'}} °C</td>
+          </tr>
+          <tr>
+            <td>Feels like</td>
+            <td>{{weather.main.feels_like | number: '1.0-1'}} °C</td>
+          </tr>
+          <tr>
+            <td>Visibility</td>
+            <td>{{(weather.visibility / 1000) | number: '1.0-1'}} km</td>
+          </tr>
+          <tr>
+            <td>Pressure</td>
+            <td>{{weather.main.pressure}} hPa</td>
+          </tr>
+          <tr>
+            <td>Humidity</td>
+            <td class="font-bold">{{weather.main.humidity}} %</td>
+          </tr>
+          <tr>
+            <td>Wind degree</td>
+            <td>{{weather.wind.deg}} °</td>
+          </tr>
+          <tr>
+            <td>Wind speed</td>
+            <td class="font-bold">{{weather.wind.speed | number: '1.0-1'}} m/s</td>
+          </tr>
+        </table>
+      </div>
+    </ng-container>
+  </ng-container>
 </div>

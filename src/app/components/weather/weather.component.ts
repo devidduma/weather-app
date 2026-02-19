@@ -5,7 +5,7 @@ import {Weather} from "../../models/weather";
 import {LocationComponent} from "../location/location.component";
 import {Location} from "../../models/location";
 import {GeocoderApiService} from "../../services/geocoder-api.service";
-import {Observable, of} from "rxjs";
+import {Observable, of, switchMap} from "rxjs";
 
 @Component({
   selector: 'app-weather',
@@ -21,19 +21,23 @@ import {Observable, of} from "rxjs";
   styleUrl: './weather.component.css'
 })
 export class WeatherComponent implements OnInit {
-  weather: Weather = {} as Weather;
-  selectedLocation: Observable<Location> = of({} as Location);
+  weather!: Observable<Weather>;
+  selectedLocation!: Observable<Location>;
 
   constructor(private dataService: WeatherApiService, private geocoderService: GeocoderApiService) {
   }
 
   ngOnInit() {
     this.selectedLocation = this.geocoderService.getSelectedLocation();
-    this.selectedLocation.subscribe(location => {
-      this.getWeather(location.lat, location.lon).subscribe(weather => {
-        this.weather = weather;
-      });
-    })
+
+    this.weather = this.geocoderService.getSelectedLocation().pipe(
+      switchMap(location => {
+        if (!location?.lat || !location?.lon) {
+          return of({} as Weather);
+        }
+        return this.getWeather(location.lat, location.lon);
+      })
+    );
   }
 
   getWeather(latitude: number, longitude: number): Observable<Weather> {
